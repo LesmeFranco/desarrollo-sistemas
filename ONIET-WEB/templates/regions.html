@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} Informe de Regiones {% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Informe De Regiones</h2>
+    <p>Períodos 2023 - 2025</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Región</th>
+                <th>Cantidad Servicios</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in rows %}
+            <tr>
+                <td>{{ r.Region }}</td>
+                <td>{{ r.CantidadServicios }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="2">No hay datos</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
