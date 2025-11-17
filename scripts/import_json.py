@@ -2,7 +2,6 @@ import json
 import os
 import sys
 
-# Ensure repo root is on sys.path so imports like `import app` work when running this script
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
@@ -11,7 +10,6 @@ from app import app, db, Trabajo, json_path
 
 
 def normalize_value(v):
-    # Helper to convert empty strings to None
     if v == "" or v is None:
         return None
     return v
@@ -45,7 +43,6 @@ def import_json(path=json_path):
 
     if trabajos:
         with app.app_context():
-            # Optionally clear existing table? here we append
             db.session.bulk_save_objects(trabajos)
             db.session.commit()
             print(f"Imported {len(trabajos)} rows into trabajos table.")
