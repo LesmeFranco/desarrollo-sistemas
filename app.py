@@ -23,7 +23,6 @@ migrate = Migrate(app, db)
 # Path al JSON (usado por el script de importación o por pruebas)
 json_path = "docs/seguros-prestaciones.json"
 
-# Modelo: Empresa/Company
 class Company(db.Model):
     __tablename__ = 'companies'
     id = db.Column(db.Integer, primary_key=True)
